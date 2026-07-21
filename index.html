@@ -1,541 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Rishika Endal Portfolio</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-
-
-
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Rishika Endal — Full Stack Java Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-
-/*======================================
-//--//-->   ABOUT
-======================================*/
-
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
-
-.about-mf .about-img img {
-  margin-left: 10px;
-}
-
-
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
-
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
-
-
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
-}
-
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
+  :root{
+    --bg:#0B1220;
+    --surface:#121B2E;
+    --surface-2:#182541;
+    --line:#25324D;
+    --text:#E7ECF5;
+    --muted:#8C97AE;
+    --teal:#33D6B0;
+    --amber:#F2A65A;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Inter', system-ui, sans-serif;
   }
-  to {
-    width: 100%;
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
   }
-}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--teal); color:#06251d;}
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
-  to {
-    width: 0;
+
+  /* ---------- Layout shell ---------- */
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,18,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
   }
-}
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--mono); font-weight:600; font-size:15px; color:var(--text);
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 8px var(--teal);}
+  nav.links{display:flex; gap:28px; font-size:14px; font-family:var(--mono);}
+  nav.links a{color:var(--muted); transition:color .2s;}
+  nav.links a:hover{color:var(--teal);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--line); color:var(--text); border-radius:6px; padding:6px 10px; font-family:var(--mono); cursor:pointer;}
 
+  @media (max-width:720px){
+    nav.links{display:none;}
+    .nav-toggle{display:block;}
+    nav.links.open{
+      display:flex; flex-direction:column; position:absolute; top:56px; left:0; right:0;
+      background:var(--surface); padding:16px 28px; border-bottom:1px solid var(--line); gap:14px;
+    }
+  }
 
-/* project image zoom effect */
+  /* ---------- Hero ---------- */
+  section.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr 0.7fr; gap:56px; align-items:center;
+  }
+  @media (max-width:820px){ .hero-grid{grid-template-columns:1fr;} }
 
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
+  .status-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12.5px; color:var(--amber);
+    border:1px solid rgba(242,166,90,0.35); background:rgba(242,166,90,0.08);
+    padding:6px 12px; border-radius:100px; margin-bottom:22px;
+  }
+  .status-pill .blink{width:7px; height:7px; border-radius:50%; background:var(--amber); animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.25;}}
 
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
+  .hero h1{
+    font-size:clamp(34px,5vw,54px); font-weight:800; line-height:1.08; letter-spacing:-0.02em;
+    margin-bottom:14px;
+  }
+  .hero h1 span{color:var(--teal);}
+  .hero .role{
+    font-family:var(--mono); font-size:17px; color:var(--muted); margin-bottom:22px;
+  }
+  .hero p.summary{max-width:560px; color:#B7C0D4; margin-bottom:30px; font-size:15.5px;}
 
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; font-weight:600;
+    padding:12px 20px; border-radius:8px; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s, background .15s, border-color .15s;
+  }
+  .btn-primary{background:var(--teal); color:#06251d;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--teal); color:var(--teal); transform:translateY(-2px);}
 
+  .hero-photo{
+    justify-self:center; position:relative; width:220px; height:220px;
+  }
+  .hero-photo img{
+    width:100%; height:100%; object-fit:cover; border-radius:16px;
+    border:1px solid var(--line);
+    filter:grayscale(15%);
+  }
+  .hero-photo::before{
+    content:""; position:absolute; inset:-10px; border:1px dashed rgba(51,214,176,0.35);
+    border-radius:20px;
+  }
+  .coord{
+    position:absolute; bottom:-14px; right:-14px; background:var(--surface);
+    border:1px solid var(--line); font-family:var(--mono); font-size:11px; color:var(--muted);
+    padding:6px 10px; border-radius:6px;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:88px 0;}
+  section.alt{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .section-head{margin-bottom:44px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--teal); letter-spacing:.08em;
+    text-transform:uppercase; display:block; margin-bottom:10px;
+  }
+  .section-head h2{font-size:clamp(24px,3vw,32px); font-weight:800; letter-spacing:-0.01em;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:#B7C0D4; margin-bottom:16px; font-size:15.5px;}
+  .facts{list-style:none; display:flex; flex-direction:column; gap:14px;}
+  .facts li{
+    display:flex; justify-content:space-between; font-size:14px;
+    border-bottom:1px dashed var(--line); padding-bottom:12px;
+  }
+  .facts li span:first-child{font-family:var(--mono); color:var(--muted);}
+  .facts li span:last-child{font-weight:600; text-align:right;}
+
+  /* ---------- Experience pipeline ---------- */
+  .pipeline{position:relative; padding-left:32px;}
+  .pipeline::before{
+    content:""; position:absolute; left:5px; top:8px; bottom:8px; width:2px;
+    background:linear-gradient(var(--teal), var(--line) 12%, var(--line) 88%, transparent);
+  }
+  .node{position:relative; padding-bottom:52px;}
+  .node:last-child{padding-bottom:0;}
+  .node-dot{
+    position:absolute; left:-32px; top:4px; width:12px; height:12px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--muted);
+  }
+  .node.current .node-dot{border-color:var(--amber); background:var(--amber); box-shadow:0 0 10px rgba(242,166,90,.6);}
+  .node-head{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 16px; margin-bottom:6px;
+  }
+  .node-head .company{font-size:19px; font-weight:700;}
+  .node-head .dates{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-left:auto;}
+  .node .role{font-family:var(--mono); font-size:13.5px; color:var(--teal); margin-bottom:12px;}
+  .tag-current{
+    font-family:var(--mono); font-size:10.5px; color:var(--amber); border:1px solid rgba(242,166,90,.4);
+    padding:2px 8px; border-radius:100px; text-transform:uppercase; letter-spacing:.05em;
+  }
+  .node ul{list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:14px;}
+  .node ul li{
+    font-size:14.5px; color:#B7C0D4; padding-left:18px; position:relative;
+  }
+  .node ul li::before{content:"›"; position:absolute; left:0; color:var(--teal); font-weight:700;}
+  .node-tools{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--mono); font-size:11.5px; color:var(--muted);
+    border:1px solid var(--line); padding:4px 10px; border-radius:6px; background:var(--surface);
+  }
+  .node.current .chip{color:#CBEFE4; border-color:rgba(51,214,176,.35); background:rgba(51,214,176,.06);}
+
+  .see-more{
+    font-family:var(--mono); font-size:12.5px; color:var(--teal); cursor:pointer;
+    display:inline-block; margin-top:2px; border-bottom:1px dashed rgba(51,214,176,.5);
+  }
+  .node ul.extra{display:none;}
+  .node.expanded ul.extra{display:flex;}
+
+  /* ---------- Skills ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:820px){ .skill-groups{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .skill-groups{grid-template-columns:1fr;} }
+  .skill-card{
+    background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:20px;
+  }
+  .skill-card h3{
+    font-family:var(--mono); font-size:12px; color:var(--teal); text-transform:uppercase;
+    letter-spacing:.06em; margin-bottom:14px;
+  }
+  .skill-card .chips{display:flex; flex-wrap:wrap; gap:8px;}
+
+  /* ---------- Education / Certs ---------- */
+  .ed-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:820px){ .ed-grid{grid-template-columns:1fr;} }
+  .ed-item{border-left:2px solid var(--line); padding-left:18px; margin-bottom:22px;}
+  .ed-item h4{font-size:16px; font-weight:700;}
+  .ed-item .school{color:var(--muted); font-size:14px; margin-top:2px;}
+  .ed-item .yr{font-family:var(--mono); font-size:12px; color:var(--teal); margin-top:4px;}
+  .cert{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:12px;
+    transition:border-color .2s;
+  }
+  .cert:hover{border-color:var(--teal);}
+  .cert span{font-size:14.5px; font-weight:600;}
+  .cert a{font-family:var(--mono); font-size:12px; color:var(--teal);}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  @media (max-width:820px){ .contact-grid{grid-template-columns:repeat(2,1fr);} }
+  .contact-card{
+    border:1px solid var(--line); border-radius:10px; padding:20px; text-align:left;
+    transition:border-color .2s, transform .2s;
+  }
+  .contact-card:hover{border-color:var(--teal); transform:translateY(-3px);}
+  .contact-card .label{font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px;}
+  .contact-card .value{font-size:14.5px; font-weight:600; word-break:break-word;}
+
+  footer{
+    padding:32px 0; text-align:center; font-family:var(--mono); font-size:12px; color:var(--muted);
+    border-top:1px solid var(--line);
+  }
 </style>
+</head>
+<body>
 
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span> rishika.endal</div>
+    <button class="nav-toggle" id="navToggle">menu</button>
+    <nav class="links" id="navLinks">
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
 
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Rishika Endal</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-pill"><span class="blink"></span> currently building @ Walmart</div>
+      <h1>Rishika Endal<br><span>Full Stack Java Developer</span></h1>
+      <div class="role">8+ years · Java · Spring Boot · React · Distributed Systems</div>
+      <p class="summary">I design and ship scalable microservices and event-driven data pipelines — from React front ends down to Kafka streams and cloud-native deployments — for retail, finance, and healthcare platforms.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/rishika-endal-9669b6341/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/endalrishikarao/" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/profile_photo.jpeg" alt="Rishika Endal">
+      <div class="coord">role: full-stack<br>status: active</div>
+    </div>
+  </div>
+</section>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	 <section id="home-section" class="hero">
-  <div class="home-slider owl-carousel">
-    <div class="slider-item">
-      <div class="overlay"></div>
-      <div class="container">
-        <div 
-          class="row d-flex no-gutters slider-text align-items-center justify-content-center"
-          data-scrollax-parent="true"
-          style="height: 100vh;"
-        >
-          <div 
-            class="text text-center ftco-animate"
-            data-scrollax="properties: { translateY: '0%' }"
-          >
-            <span class="subheading">Hello!</span>
-            <h1 class="mb-4 mt-3">I'm <span>Rishika Endal</span></h1>
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head">
+        <span class="eyebrow">01 · About</span>
+        <h2>Building systems that hold up at scale</h2>
+      </div>
+      <p>Full Stack Java Developer with 8+ years across the full SDLC — designing, developing, and testing enterprise-grade web and client/server applications with Java, Spring Boot, and React.</p>
+      <p>I focus on scalable microservices and cloud-native delivery: event-driven pipelines on Kafka, workflow orchestration with Airflow and Spark, and deployments across AWS, GCP, and Kubernetes. I've shipped production systems for retail, finance, insurance, and healthcare platforms.</p>
+    </div>
+    <ul class="facts">
+      <li><span>experience</span><span>8+ years</span></li>
+      <li><span>current role</span><span>Full Stack Java Developer</span></li>
+      <li><span>current client</span><span>Walmart</span></li>
+      <li><span>education</span><span>M.S. Computer Science</span></li>
+      <li><span>languages</span><span>English, Telugu</span></li>
+      <li><span>domains</span><span>Retail, Finance, Healthcare</span></li>
+    </ul>
+  </div>
+</section>
 
-            <!-- Element to contain animated typing -->
-            <span id="typing-animation"></span>
+<section class="alt" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 · Experience</span>
+      <h2>Deployment history</h2>
+    </div>
 
-            <script>
-              // Initialize the typing animation
-              const typingAnimationElement = document.getElementById('typing-animation');
+    <div class="pipeline">
 
-              // Create an array of typing text
-              const typingTexts = [
-                'Java Developer',
-                'AWS Certified Developer Associate',
-                'Java Front End Developer',
-                'Java Back End Developer',
-                'Java Full Stack Developer',
-              ];
+      <div class="node current">
+        <div class="node-dot"></div>
+        <div class="node-head">
+          <span class="company">Triumph IT Inc. <span style="color:var(--muted); font-weight:400;">· Client: Walmart</span></span>
+          <span class="tag-current">current</span>
+          <span class="dates">Apr 2025 — Present</span>
+        </div>
+        <div class="role">Full Stack Java Developer</div>
+        <ul>
+          <li>Built responsive UIs with React JS, React Router, and Redux; used Hooks and lazy loading to cut initial page load times.</li>
+          <li>Engineered scalable Spring Boot REST APIs across a distributed microservices architecture with full HTTP method and status-code handling.</li>
+          <li>Built Kafka producer/consumer pipelines for real-time, high-throughput event streaming, with Kafka Connect linking sources and sinks.</li>
+          <li>Deployed and managed containerized microservices on Kubernetes for high availability and fault tolerance.</li>
+        </ul>
+        <ul class="extra">
+          <li>Designed Apache Airflow DAGs and Spark-based processing engines for large-scale batch and streaming data transformations.</li>
+          <li>Integrated Google Cloud Storage as a BigQuery staging layer and authored BigQuery SQL for analytical reporting.</li>
+          <li>Configured Dagster (Elementl) for pipeline health, failure, and SLA-breach monitoring.</li>
+          <li>Validated REST APIs with Postman and Swagger/OpenAPI; automated releases with Concord approval-gated workflows.</li>
+        </ul>
+        <span class="see-more" data-target="expand">show more ↓</span>
+        <div class="node-tools" style="margin-top:14px;">
+          <span class="chip">React</span><span class="chip">Redux</span><span class="chip">Spring Boot</span><span class="chip">Kafka</span><span class="chip">Kubernetes</span><span class="chip">Airflow</span><span class="chip">Spark</span><span class="chip">BigQuery</span><span class="chip">GCS</span><span class="chip">Dagster</span><span class="chip">Concord</span><span class="chip">MySQL</span>
+        </div>
+      </div>
 
-              // Typing animation function
-              function playTypingAnimation(text, index = 0) {
-                if (index < text.length) {
-                  typingAnimationElement.textContent += text[index];
-                  setTimeout(() => playTypingAnimation(text, index + 1), 200);
-                } else {
-                  setTimeout(() => {
-                    typingAnimationElement.textContent = '';
-                    playTypingAnimation(
-                      typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]
-                    );
-                  }, 2000);
-                }
-              }
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-head">
+          <span class="company">Western Union</span>
+          <span class="dates">Feb 2023 — Mar 2025</span>
+        </div>
+        <div class="role">Full Stack Java Developer · Austin, TX</div>
+        <ul>
+          <li>Built the presentation layer with AngularJS; developed custom directives, factories, and services.</li>
+          <li>Integrated Firebase Auth and React for secure OAuth/JWT-based login flows; built REST services with Node.js and Express.</li>
+          <li>Configured Kafka brokers, Kafka Streams, and Kafka Connect for real-time, fault-tolerant data flow; monitored with Confluent Control Center and Grafana.</li>
+          <li>Designed Spring Boot REST APIs and tuned PostgreSQL and MongoDB for high-traffic workloads.</li>
+        </ul>
+        <ul class="extra">
+          <li>Set up AWS EC2, S3, security groups, and auto-scaling for cost-effective, fault-tolerant infrastructure.</li>
+          <li>Deployed microservices in Docker on Kubernetes, with Jenkins and GitLab CI powering continuous delivery.</li>
+        </ul>
+        <span class="see-more" data-target="expand">show more ↓</span>
+        <div class="node-tools" style="margin-top:14px;">
+          <span class="chip">AngularJS</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Kafka</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">AWS</span><span class="chip">Kubernetes</span>
+        </div>
+      </div>
 
-              // Start the typing animation
-              playTypingAnimation(typingTexts[0]);
-            </script>
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-head">
+          <span class="company">Delta Dental Ins.</span>
+          <span class="dates">Dec 2020 — Jan 2023</span>
+        </div>
+        <div class="role">Full Stack Java Developer · San Francisco, CA</div>
+        <ul>
+          <li>Built a Single Page Application in AngularJS with lazy-loaded modules and RxJS-based data transforms.</li>
+          <li>Secured REST APIs with Spring Security and OAuth 2; mapped an Oracle database with Hibernate.</li>
+          <li>Designed Kafka messaging queues, connectors, and streams for real-time, distributed event processing.</li>
+        </ul>
+        <ul class="extra">
+          <li>Deployed microservices in Docker; used AWS EC2, Lambda, S3, CloudWatch, Glacier, and SQS for cloud infrastructure and monitoring.</li>
+          <li>Built unit tests with JUnit and managed builds with Maven and Jenkins.</li>
+        </ul>
+        <span class="see-more" data-target="expand">show more ↓</span>
+        <div class="node-tools" style="margin-top:14px;">
+          <span class="chip">AngularJS</span><span class="chip">Spring Security</span><span class="chip">Hibernate</span><span class="chip">Oracle</span><span class="chip">Kafka</span><span class="chip">Docker</span><span class="chip">AWS</span>
+        </div>
+      </div>
 
-            <br><br>
-            <h2>Full Stack Java Developer</h2>
-          </div>
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-head">
+          <span class="company">Sephora</span>
+          <span class="dates">Jan 2019 — Nov 2020</span>
+        </div>
+        <div class="role">Full Stack Java Developer · New York City, NY</div>
+        <ul>
+          <li>Built reusable, responsive React components with styled-components and React Router for a single-page app.</li>
+          <li>Developed Spring middleware and an SOA-based architecture for a loosely coupled backend.</li>
+          <li>Documented REST APIs with Swagger and deployed with Maven; hosted on AWS (VPC, EC2, S3, CloudFront, ELB, Elastic Beanstalk).</li>
+        </ul>
+        <div class="node-tools" style="margin-top:14px;">
+          <span class="chip">React</span><span class="chip">Spring</span><span class="chip">REST</span><span class="chip">Swagger</span><span class="chip">MySQL</span><span class="chip">AWS</span>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-head">
+          <span class="company">Voyager IT Solutions</span>
+          <span class="dates">Jul 2016 — Dec 2018</span>
+        </div>
+        <div class="role">Java Developer · Bangalore, India</div>
+        <ul>
+          <li>Built web interfaces with HTML, CSS, and JSP; applied core Java (OOP, collections, multithreading, generics).</li>
+          <li>Developed with Spring MVC and JDBC/Hibernate; implemented SOAP web services with XML.</li>
+          <li>Configured J2EE servers (Apache Tomcat, IBM WebSphere) and optimized MySQL databases.</li>
+        </ul>
+        <div class="node-tools" style="margin-top:14px;">
+          <span class="chip">Java</span><span class="chip">JSP</span><span class="chip">Spring MVC</span><span class="chip">Hibernate</span><span class="chip">SOAP</span><span class="chip">MySQL</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03 · Skills</span>
+      <h2>Stack, grouped by role in the system</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h3>Frontend</h3>
+        <div class="chips">
+          <span class="chip">React.js</span><span class="chip">Redux</span><span class="chip">React Router</span><span class="chip">AngularJS / Angular</span><span class="chip">RxJS</span><span class="chip">TypeScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Bootstrap</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Backend</h3>
+        <div class="chips">
+          <span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">Spring Security</span><span class="chip">Spring Data JPA</span><span class="chip">Hibernate</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">GraphQL</span><span class="chip">Microservices</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Data &amp; Messaging</h3>
+        <div class="chips">
+          <span class="chip">Apache Kafka</span><span class="chip">Apache Airflow</span><span class="chip">Apache Spark</span><span class="chip">Dagster</span><span class="chip">BigQuery</span><span class="chip">Amazon SQS/SNS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud &amp; DevOps</h3>
+        <div class="chips">
+          <span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Jenkins</span><span class="chip">GitLab CI</span><span class="chip">Concord</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Databases</h3>
+        <div class="chips">
+          <span class="chip">MySQL</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">DB2</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Testing &amp; Tools</h3>
+        <div class="chips">
+          <span class="chip">JUnit</span><span class="chip">Mockito</span><span class="chip">Postman</span><span class="chip">Swagger/OpenAPI</span><span class="chip">Git</span><span class="chip">Maven</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-				<!-- <div class="row d-flex"> -->
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-									  <div class="about-img">
-										<img src="images/profile_photo.jpeg" class="img-fluid rounded b-shadow-a" alt="">
-									  </div>
-									</div>
-									<!-- Details next to profile image -->
-									<div class="col-sm-6 col-md-7">
-									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Rishika Endal</span></p>
-										<p><span class="title-s">Job Role: </span> <span>Senior Full Stack Java Developer</span></p>
-										<p><span class="title-s">Experience: </span> <span>8 Years</span></p>
-										<p><span class="title-s">Address: </span> <span>USA</span></p>
-									  </div>
-									</div>
-								  </div>
-
-								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>Java</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									<span>HTML</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-
-									<span>CSS</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>React</span> <span class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Angular</span> <span class="pull-right">80%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Spring Boot</span> <span class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>MySQL</span> <span class="pull-right">80%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									<span>AWS</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-								
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-								
-								<p>Full Stack Java Developer with 8 years of experience across all phases of the SDLC. Skilled in designing, developing, and testing enterprise-level web and client/server applications using Java,
-									 Spring Boot, and React. Proficient in building scalable microservices and web solutions, with a focus on Agile methodologies, CI/CD practices, and cloud-native development. 
-									 Proven ability to deliver high-performance solutions that drive business growth, with successful projects in healthcare, retail, insurance and  finance</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Full Stack Java Developer</span></li>
-									<li class="d-flex"><span>Domain:</span> <span>Healthcare, Retail, Insurance and  Finance</span></li>
-									<li class="d-flex"><span>Education:</span> <span>Master's in Computer and Information Sciences</span></li>
-									<li class="d-flex"><span>Language:</span> <span>English, Telugu</span></li>
-									<li class="d-flex"><span>Tools and Technologies:</span> <span>React.js,Angular,HTML5, CSS3, Bootstrap, TypeScript,Spring Boot, Spring MVC, Spring REST, Spring Data JPA, SOAP, GraphQL, Microservices Architecture,AWS,MySQL,Docker, Kubernetes, , Git</span></li>
-									
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="4">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/rishika-endal-9669b6341" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </section>
-
-
-
-	
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
-            <p>Full Stack Java Developer with 8 years of experience across all phases of the SDLC. Skilled in designing, developing, and testing enterprise-level web and client/server applications using Java, Spring Boot, and React. Proficient in building scalable microservices and web solutions, with a focus on Agile methodologies, CI/CD practices, and cloud-native development. Proven ability to deliver high-performance solutions that drive business growth, with successful projects in healthcare, retail, insurance and  finance.</p>
-          </div>
-        </div>
-
-		<div class="row">
-			<h1 class="big-4">Experience</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Feb 2023– Present</span>
-						<h2>Full Stack Java Developer</h2>
-						<span class="position">Western Union</span>
-						<p class="mt-4">Western Union, is a global leader in cross-border, cross-currency money movement, offering innovative solutions to connect individuals, businesses, and communities worldwide. The company’s technology enables secure and efficient financial transactions, supports international remittances, and empowers businesses with payment solutions, ensuring accessibility and reliability in the global financial ecosystem. 
-							<ul>
-								<li>Developed user interfaces using React JS, incorporating components, forms, events, animations, and React Router for module-level routing.</li>
-								<li> Optimized rendering with React Suspense, lazy loading, and performance techniques like memo and PureComponent.</li>
-								<li>Utilized React Hooks (useState, useEffect, useContext, useReducer) for cleaner, functional code. </li>
-								<li>Built real-time data streaming with WebSockets and integrated Elasticsearch for real-time analytics.</li>
-								<li>Created reusable, responsive components with styled-components and integrated third-party authentication via Firebase Auth.</li>
-								<li>Developed RESTful APIs using Node.js, Express, and Spring Boot, implementing microservices, Spring Data JPA, and Hibernate for optimized database interaction.</li>
-								<li>Set up AWS EC2, S3, and Elastic Load Balancers for fault-tolerant, highly available cloud infrastructure. </li>
-								<li>Deployed services in Docker containers, orchestrated with Kubernetes, and integrated CI/CD pipelines using Jenkins and GitLab CI for automated testing, version control, and deployment.</li>
-                            </ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Dec 2020 to Jan 2023</span>
-						<h2>Full Stack Java Developer</h2>
-						<span class="position">Delta Dental Ins</span>
-						<p class="mt-4">Delta Dental Insurance is a  dental benefits provider, offering comprehensive dental insurance solutions to individuals, families, and businesses. The company focuses on enhancing oral health and wellness by providing access to a vast network of dentists, innovative plan options, and exceptional customer service. 
-							<ul>
-								<li>Built dynamic front-end applications from scratch using HTML5, CSS3, JavaScript, jQuery, Bootstrap, AngularJS, and Node.js, creating custom directives, factories, services, and controllers to manage scope isolation and ensure modular design.</li>
-								<li>Implemented Spring MVC for Java-based web applications, using Spring IOC for bean configuration, Spring Hibernate for database interactions, and Spring Security with OAuth 2 for authentication and authorization. Utilized Java 8 features like lambda expressions, multithreading, and efficient collection operations.</li>
-								<li>Deployed Microservices in Docker containers for increased isolation and scalability. Worked with Kafka for messaging queues and AWS EC2 to host and manage cloud-based applications, integrating with Elastic Beanstalk for deployment.</li>
-								<li>Developed unit tests using JUnit in Eclipse, ensuring code reliability. Utilized Maven for build management and Jenkins for continuous integration and cross-platform application scalability.</li>
-								<li>Worked with AWS Lambda for event-driven functions, integrated Amazon S3 for object storage, and used AWS CloudWatch for application monitoring. Configured AWS Glacier for data archiving and managed queues with AWS SQS.</li>
-							</ul>	
-
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-		<br>
-		<br>
-
-		<div class="row">
-			<div class="col-md-6">
-				<div class="resume-wrap ftco-animate">
-					<span class="date">Jan 2019-Nov 2020</span>
-					<h2>Full Stack Java Developer</h2>
-					<span class="position">Sephora</span>
-					<p class="mt-4">Sephora is a global leader in beauty retail, offering an extensive selection of high-quality cosmetics, skincare, fragrance, and personal care products. It provides a unique shopping experience through expert consultations, personalized recommendations, and cutting-edge digital tools.
-						<ul>	
-						    <li>Developed web applications using HTML5, CSS3, Bootstrap, AngularJS, and jQuery, implementing animations and screen customizations. Worked on the presentation layer and GUI framework, and rendered additional components with React.js.</li>
-							<li>Implemented business logic using Spring middleware and SOA-based architecture. Developed and consumed RESTful web services, and utilized AJAX and Angular Resources for API interactions.</li>
-							<li>Designed database schema, created PL/SQL stored procedures, functions, triggers, and optimized SQL queries for performance tuning to improve application response time.</li>
-							<li>Automated deployment using Maven, integrated with Jenkins for continuous integration, and migrated from SVN to GitHub. Utilized Log4j for logging and Swagger for API documentation.</li>
-							<li>Managed cloud infrastructure using AWS services, including VPC, EC2, S3, CloudFront, ELB, and Elastic Beanstalk, ensuring efficient deployment and scalability.</li>
-			            </ul>
-					</p>
-				</div>
-
-			</div>
-
-			<div class="col-md-6">
-				<div class="resume-wrap ftco-animate">
-					<span class="date">July 2016– Dec 2018</span>
-					<h2>Java Developer</h2>
-					<span class="position">Voyager IT Solutions</span>
-					<p class="mt-4">Voyager IT Solutions is a dynamic technology services provider specializing in innovative IT solutions for businesses across various industries. The company focuses on delivering end-to-end services, including software development, system integration, and IT consulting It helps organizations optimize their operations, enhance efficiency, and achieve their digital transformation goals.</p>
-						<li>Developed user-friendly web interfaces using HTML, CSS, and JSP.</li>
-						<li>Utilized core Java concepts, including OOP, exception handling, collections, multithreading, and Java Generics, to build robust and maintainable applications.</li>
-						<li>Configured and managed J2EE servers, like Apache Tomcat and IBM WebSphere, and applied design patterns for reusable and maintainable code.</li>
-						<li>Developed the application using Spring MVC that leverages classical MVC architecture and JavaScript for data entry that require data validation at client side. </li>
-						<li>Used JDBC with Hibernate for efficient database interaction, performing CRUD operations and executing complex SQL queries, and integrated with JSP for dynamic web content generation.</li>
-						<li>Implemented SOAP web services with XML for secure and reliable communication between distributed systems.</li>
-						<li>Designed and optimized MySQL databases, enhancing data storage, retrieval, and query performance for improved application scalability.</li>
-						<li>Implemented unit testing with JUnit, ensuring code quality by writing </li>
-					</p>
-				</div>
-
-			</div>
-		</div>
-
-	<br>
-	<br>
-
-
-		<div class="row">
-			<h1 class="big-4">Education</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-			<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2023-2024</span>
-    					<h2>Master's in Computer and Information Sciences</h2>
-    					<span class="position">University of Texas at Arlington</span>
-    					<p class="mt-4">CGPA:3.6</p>
-    				</div>
-    			</div>
-
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2013-2017</span>
-    					<h2>Bachelor's in Information Technology</h2>
-    					<span class="position">JNTUH</span>
-    					<p class="mt-4">CGPA: 8.0</p>
-    				</div>
-				</div>
-    		</div>
-
-    		
-    	</div>
-    </section>
-
-   
-
- <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg); position: relative; z-index: 1;">
-  <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-7 ftco-animate text-center">
-        <h2 class="text-white">More projects on <span>GitHub</span></h2>
-        <br>
-        <a href="https://github.com/endalrishikarao/" target="_blank" class="btn btn-primary py-3 px-5">GitHub</a>
+<section class="alt" id="education">
+  <div class="wrap ed-grid">
+    <div>
+      <div class="section-head">
+        <span class="eyebrow">04 · Education</span>
+        <h2>Foundations</h2>
+      </div>
+      <div class="ed-item">
+        <h4>Master's in Computer Science</h4>
+        <div class="school">University of Texas at Arlington</div>
+      </div>
+      <div class="ed-item">
+        <h4>Bachelor's in Computer Science</h4>
+        <div class="school">Jawaharlal Nehru Technological University, Hyderabad</div>
       </div>
     </div>
-  </div>
-</div>
-
-	</section>
-
-<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Contact</h1>
-        <h2 class="mb-4">Contact Me</h2>
-        <p>Below are the details to reach out to me!</p>
+    <div>
+      <div class="section-head">
+        <span class="eyebrow">05 · Certifications</span>
+        <h2>Verified</h2>
       </div>
-    </div>
-
-    <div class="row d-flex contact-info mb-5">
-      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-        <div class="align-self-stretch box p-4 text-center">
-          <div class="icon d-flex align-items-center justify-content-center">
-            <span class="icon-map-signs"></span>
-          </div>
-          <h3 class="mb-4">Address</h3>
-          <p>United States</p>
-        </div>
+      <div class="cert">
+        <span>AWS Certified Cloud Practitioner</span>
+        <a href="https://www.credly.com/badges/fe4dc29c-da79-4d5a-a0f8-c33e40d90af6/public_url" target="_blank" rel="noopener">view credential ↗</a>
       </div>
-      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-        <div class="align-self-stretch box p-4 text-center">
-          <div class="icon d-flex align-items-center justify-content-center">
-            <span class="icon-phone2"></span>
-          </div>
-          <h3 class="mb-4">Contact Number</h3>
-          <p><a href="">+ 1 469 844 0273</a></p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-        <div class="align-self-stretch box p-4 text-center">
-          <div class="icon d-flex align-items-center justify-content-center">
-            <span class="icon-paper-plane"></span>
-          </div>
-          <h3 class="mb-4">Email Address</h3>
-          <p><a href="mailto:endalrishikarao@gmail.com">endalrishikarao@gmail.com</a></p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-        <div class="align-self-stretch box p-4 text-center">
-          <div class="icon d-flex align-items-center justify-content-center">
-            <span class="icon-linkedin"></span>
-          </div>
-          <h3 class="mb-4">LinkedIn</h3>
-          <p><a href="https://www.linkedin.com/in/rishika-endal-9669b6341" target="_blank">Visit Profile</a></p>
-        </div>
+      <div class="cert">
+        <span>AWS Certified Developer – Associate</span>
+        <a href="https://www.credly.com/badges/0cd8cd73-0834-40b1-befe-0d9949fa69c1/public_url" target="_blank" rel="noopener">view credential ↗</a>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">06 · Contact</span>
+      <h2>Let's talk</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:endalrishikarao@gmail.com">
+        <div class="label">Email</div>
+        <div class="value">endalrishikarao@gmail.com</div>
+      </a>
+      <a class="contact-card" href="tel:+14698440273">
+        <div class="label">Phone</div>
+        <div class="value">+1 (469) 844-0273</div>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/rishika-endal-9669b6341/" target="_blank" rel="noopener">
+        <div class="label">LinkedIn</div>
+        <div class="value">rishika-endal</div>
+      </a>
+      <a class="contact-card" href="https://github.com/endalrishikarao/" target="_blank" rel="noopener">
+        <div class="label">GitHub</div>
+        <div class="value">endalrishikarao</div>
+      </a>
+    </div>
+  </div>
+</section>
 
+<footer>
+  © <span id="yr"></span> Rishika Endal · built with intent
+</footer>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  
-  <script src="js/main.js"></script>
-    
-  </body>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('nav.links a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.see-more').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var node = btn.closest('.node');
+      node.classList.toggle('expanded');
+      btn.textContent = node.classList.contains('expanded') ? 'show less ↑' : 'show more ↓';
+    });
+  });
+</script>
+
+</body>
 </html>
